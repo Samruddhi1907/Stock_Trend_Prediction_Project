@@ -17,7 +17,7 @@ def show_model_prediction_page(data):
   symbol = st.text_input("Enter Stock Symbol (e.g., AAPL):", "AAPL")
   df = yf.download(symbol, start="2020-01-01", end="2024-07-04")
   df = df.reset_index()
-  df = df.drop(['Date','Adj Close'],axis = 1)
+  df = df.drop(['Date'],axis = 1)
   # Data preparation
   data_training = pd.DataFrame(df['Close'][0:int(len(df)*0.70)])
   data_testing = pd.DataFrame(df['Close'][int(len(df)*0.70):int(len(df))])
